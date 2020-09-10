@@ -39,13 +39,11 @@ $(function() {
                 password: $('.reg-box [name=password]').val()
             }
             //提交数据
-        $.post('http://ajax.frontend.itheima.net/api/reguser', data, function(res) {
+        $.post('/api/reguser', data, function(res) {
             console.log(res);
             //注册失败
             if (res.status == 1) {
-
                 return layer.msg(res.message);
-
             }
             layer.msg('注册成功');
             //模仿手动操作点击事件
@@ -60,7 +58,7 @@ $(function() {
         var data = $(this).serialize()
             //获取用户登录信息
         $.ajax({
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             type: 'post',
             data: data,
             success: function(res) {
